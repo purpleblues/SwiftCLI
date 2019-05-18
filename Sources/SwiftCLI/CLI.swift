@@ -85,6 +85,16 @@ public class CLI {
     }
     
     /// Kicks off the entire CLI process, routing to and executing the command specified by the passed arguments.
+    /// Uses the arguments passed in the command line. Exits the program upon completion.
+    ///
+    /// - Parameter arguments: the arguments to execute with; should not include CLI name (i.e. if you wanted to execute "greeter greet world", 'arguments' should be ["greet", "world"])
+    /// - Returns: Never
+    public func goAndExit(with arguments: [String]) -> Never {
+        let result = go(with: arguments)
+        exit(result)
+    }
+    
+    /// Kicks off the entire CLI process, routing to and executing the command specified by the passed arguments.
     /// Uses the arguments passed in the command line.
     ///
     /// - Returns: an Int32 representing the success of the CLI in routing to and executing the correct
